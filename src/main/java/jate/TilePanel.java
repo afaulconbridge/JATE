@@ -2,8 +2,6 @@ package jate;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.image.VolatileImage;
-
 import javax.swing.JPanel;
 
 import org.slf4j.Logger;
@@ -11,7 +9,6 @@ import org.slf4j.LoggerFactory;
 
 import jate.map.TileMap;
 import jate.render.TileRenderer;
-import jate.tile.Tile;
 
 public class TilePanel extends JPanel {
 

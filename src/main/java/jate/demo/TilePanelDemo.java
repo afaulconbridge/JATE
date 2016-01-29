@@ -2,8 +2,6 @@ package jate.demo;
 
 import javax.swing.JFrame;
 
-import org.junit.Test;
-
 import jate.TilePanel;
 import jate.map.TileMap;
 import jate.map.TileNestedHashMap;

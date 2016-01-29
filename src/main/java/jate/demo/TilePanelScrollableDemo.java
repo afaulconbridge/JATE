@@ -5,9 +5,6 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import org.junit.Test;
-
-import jate.TilePanel;
 import jate.TilePanelScrollable;
 import jate.map.TileMap;
 import jate.map.TileNestedHashMap;

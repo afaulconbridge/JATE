@@ -4,8 +4,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.awt.image.VolatileImage;
-
 import javax.swing.Scrollable;
 import javax.swing.SwingConstants;
 
@@ -14,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import jate.map.TileMap;
 import jate.render.TileRenderer;
-import jate.tile.Tile;
 
 public class TilePanelScrollable extends TilePanel implements Scrollable {
 

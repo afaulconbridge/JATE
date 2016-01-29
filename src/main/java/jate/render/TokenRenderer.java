@@ -6,7 +6,6 @@ import java.awt.image.VolatileImage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import jate.map.TileMap;
 import jate.map.TokenMap;
 import jate.token.Token;
 
