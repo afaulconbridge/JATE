@@ -67,26 +67,6 @@ public class TilePanelScrollable extends TilePanel implements Scrollable {
 	public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction) {
 		return 1;
 	}
-
-	public int getVisiblTileLeft() {
-		return getVisibleRect().x/tileMap.getTileWidth();
-	}
-
-	public int getVisiblTileRight() {
-        int visibletileright = getVisiblTileLeft()+(getVisibleRect().width/tileMap.getTileWidth())+2;
-        visibletileright = Math.min(tileMap.getWidth(), visibletileright);
-        return visibletileright;		
-	}
-
-	public int getVisiblTileTop() {
-		return getVisibleRect().y/tileMap.getTileHeight();
-	}
-
-	public int getVisiblTileBottom() {
-		int visibletilebottom = getVisiblTileTop()+(getVisibleRect().height/tileMap.getTileHeight())+2;
-        visibletilebottom = Math.min(tileMap.getHeight(), visibletilebottom);
-        return visibletilebottom;
-	}
 	
 	@Override
     protected void paintComponent(Graphics g) {
