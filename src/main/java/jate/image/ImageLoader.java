@@ -21,7 +21,9 @@ import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 
 public class ImageLoader {
-	
+
+
+	public static ImageLoader singleton = new ImageLoader();
 	
 	LoadingCache<String, BufferedImage> imagesBufferedCache = CacheBuilder.newBuilder()
 		       .maximumSize(100)
