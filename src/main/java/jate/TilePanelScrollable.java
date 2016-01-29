@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import jate.map.TileMap;
+import jate.render.TileRenderer;
 import jate.tile.Tile;
 
 public class TilePanelScrollable extends TilePanel implements Scrollable {
@@ -89,6 +90,7 @@ public class TilePanelScrollable extends TilePanel implements Scrollable {
         visibletilebottom = Math.min(tileMap.getHeight(), visibletilebottom);
         return visibletilebottom;
 	}
+	
 	@Override
     protected void paintComponent(Graphics g) {
     	Graphics2D gg = (Graphics2D) g;
@@ -96,33 +98,8 @@ public class TilePanelScrollable extends TilePanel implements Scrollable {
     	if (tileMap == null) {
     		return;
     	}
-    	
-    	long startTime = System.nanoTime();
-    	
-    	//work out which tiles can be seen
-        int visibletileleft = getVisiblTileLeft();
-        int visibletileright = getVisiblTileRight();
-        int visibletiletop = getVisiblTileTop();
-        int visibletilebottom = getVisiblTileBottom();
-    	
-        log.info("Can see tiles ("+visibletileleft+","+visibletiletop+") -> ("+visibletileright+","+visibletilebottom+")");
-
-        for (int y = visibletiletop; y < visibletilebottom; y++) {
-        	int pixelY = y*tileMap.getTileHeight();
-	        for (int x = visibletileleft; x < visibletileright; x++) {
-	        	int pixelX = x*tileMap.getTileWidth();
-	        	
-    			Tile tile = tileMap.get(x, y);
-    			if (tile != null) {
-	    			VolatileImage tileImage = tile.getImage();
-	    			gg.drawImage(tileImage, pixelX, pixelY, null);
-    			}
-    		}
-    	}
-    	
-    	long endTime = System.nanoTime();
-    	long intervalMs = (endTime-startTime)/1000;
-    	log.info("Rendered in "+intervalMs+" ms");
+    	Rectangle r = getVisibleRect();
+    	TileRenderer.render(gg, tileMap, r.x, r.y , r.x+r.width, r.y+r.height);
 	}
 
 }
