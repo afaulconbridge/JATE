@@ -102,7 +102,7 @@ public class TokenHashMap implements TokenMap {
 
 	@Override
 	public Map<XY, Token> getTokensBetween(XY leftTop, XY rightBottom) {
-		return reverseMap.subMap(leftTop, true, rightBottom, false);
+		return reverseMap.subMap(leftTop, true, rightBottom, true);
 	}
 	
 }
