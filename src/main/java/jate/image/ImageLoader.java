@@ -96,8 +96,9 @@ public class ImageLoader {
 			g.drawImage(imageB,null,0,0);
 		} finally {	
 			// It's always best to dispose of your Graphics objects.
-			if (g != null)
+			if (g != null) {
 				g.dispose();
+			}
 		}
 		
 		return imageV;
