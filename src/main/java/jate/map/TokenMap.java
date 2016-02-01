@@ -1,18 +1,22 @@
 package jate.map;
 
+import java.util.Map;
 import java.util.Set;
 
 import jate.token.Token;
+import jate.util.XY;
 
 public interface TokenMap {
-
-	public double getX(Token t);
-	public double getY(Token t);
 	
 	public Set<Token> getTokens();
+	public Set<XY> getXYs(Token t);
+	public Map<XY, Token> getTokensBetween(float left, float top, float right, float bottom);
+	public Map<XY, Token> getTokensBetween(XY leftTop, XY rightBottom);
 	
-	public void add(double x, double y, Token t);
-	public void remove(Token t);
+	public void add(float x, float y, Token t);
+	public void add(XY xy, Token t);
+	public void remove(float x, float y, Token t);
+	public void remove(XY xy, Token t);
 	
 
 	/**

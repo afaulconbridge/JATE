@@ -2,14 +2,9 @@ package jate.demo;
 
 import javax.swing.JFrame;
 
-import jate.TilePanel;
 import jate.TokenPanel;
-import jate.map.TileMap;
-import jate.map.TileNestedHashMap;
 import jate.map.TokenHashMap;
 import jate.map.TokenMap;
-import jate.tile.FileTile;
-import jate.tile.Tile;
 import jate.token.FileToken;
 import jate.token.Token;
 
