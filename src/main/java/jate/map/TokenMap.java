@@ -11,7 +11,7 @@ public interface TokenMap {
 	
 	public Set<Token> getTokens();
 	
-	public void add(Token t, double x, double y);
+	public void add(double x, double y, Token t);
 	public void remove(Token t);
 	
 

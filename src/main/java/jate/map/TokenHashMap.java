@@ -45,7 +45,7 @@ public class TokenHashMap implements TokenMap {
 	}
 
 	@Override
-	public void add(Token t, double x, double y) {
+	public void add(double x, double y, Token t) {
 		double[] xy = new double[2];
 		xy[0] = x;
 		xy[1] = y;
