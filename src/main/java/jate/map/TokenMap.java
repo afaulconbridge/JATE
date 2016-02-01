@@ -7,6 +7,9 @@ import jate.token.Token;
 import jate.util.XY;
 
 public interface TokenMap {
+
+	public int getWidth();
+	public int getHeight();
 	
 	public Set<Token> getTokens();
 	public Set<XY> getXYs(Token t);

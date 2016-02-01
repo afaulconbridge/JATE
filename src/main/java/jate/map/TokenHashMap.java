@@ -20,14 +20,28 @@ public class TokenHashMap implements TokenMap {
 	
 	protected final Map<Token, Set<XY>> forwardMap = new HashMap<>();
 	protected final NavigableMap<XY, Token> reverseMap = new TreeMap<>();	
-	
+
+	protected final int width;
+	protected final int height;
 	
 	protected final int unitWidth;
 	protected final int unitHeight;
 	
-	public TokenHashMap(int unitWidth, int unitHeight) {
+	public TokenHashMap(int width, int height, int unitWidth, int unitHeight) {
+		this.width = width;
+		this.height = height;
 		this.unitWidth = unitWidth;
 		this.unitHeight = unitHeight;
+	}
+
+	@Override
+	public int getWidth() {
+		return width;
+	}
+
+	@Override
+	public int getHeight() {
+		return height;
 	}
 
 	@Override
@@ -89,6 +103,6 @@ public class TokenHashMap implements TokenMap {
 	@Override
 	public Map<XY, Token> getTokensBetween(XY leftTop, XY rightBottom) {
 		return reverseMap.subMap(leftTop, true, rightBottom, false);
-	}	
+	}
 	
 }
