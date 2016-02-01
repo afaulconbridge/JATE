@@ -42,18 +42,22 @@ public class TileNestedHashMap implements TileMap {
 		map.get(x).put(y, tile);
 	}
 
+	@Override
 	public int getWidth() {
 		return width;
 	}
 
+	@Override
 	public int getHeight() {
 		return height;
 	}
 
+	@Override
 	public int getTileWidth() {
 		return tileWidth;
 	}
 
+	@Override
 	public int getTileHeight() {
 		return tileHeight;
 	}
