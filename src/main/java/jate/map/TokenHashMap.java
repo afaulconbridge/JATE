@@ -17,16 +17,15 @@ import jate.util.XY;
 
 public class TokenHashMap implements TokenMap {
 
-	
 	protected final Map<Token, Set<XY>> forwardMap = new HashMap<>();
-	protected final NavigableMap<XY, Token> reverseMap = new TreeMap<>();	
+	protected final NavigableMap<XY, Token> reverseMap = new TreeMap<>();
 
 	protected final int width;
 	protected final int height;
-	
+
 	protected final int unitWidth;
 	protected final int unitHeight;
-	
+
 	public TokenHashMap(int width, int height, int unitWidth, int unitHeight) {
 		this.width = width;
 		this.height = height;
@@ -61,12 +60,13 @@ public class TokenHashMap implements TokenMap {
 
 	@Override
 	public void add(float x, float y, Token t) {
-		XY xy = new XY(x,y);
+		XY xy = new XY(x, y);
 		add(xy, t);
 	}
+
 	@Override
 	public void add(XY xy, Token t) {
-		if (!forwardMap.containsKey(t)){
+		if (!forwardMap.containsKey(t)) {
 			forwardMap.put(t, new HashSet<>());
 		}
 		forwardMap.get(t).add(xy);
@@ -75,7 +75,7 @@ public class TokenHashMap implements TokenMap {
 
 	@Override
 	public void remove(float x, float y, Token t) {
-		XY xy = new XY(x,y);
+		XY xy = new XY(x, y);
 		remove(xy, t);
 	}
 
@@ -90,7 +90,7 @@ public class TokenHashMap implements TokenMap {
 
 	@Override
 	public Set<XY> getXYs(Token t) {
-		return Collections.unmodifiableSet(forwardMap.get(t));		
+		return Collections.unmodifiableSet(forwardMap.get(t));
 	}
 
 	@Override
@@ -104,5 +104,5 @@ public class TokenHashMap implements TokenMap {
 	public Map<XY, Token> getTokensBetween(XY leftTop, XY rightBottom) {
 		return reverseMap.subMap(leftTop, true, rightBottom, true);
 	}
-	
+
 }

@@ -8,12 +8,12 @@ import jate.tile.Tile;
 public class TileNestedHashMap implements TileMap {
 
 	protected Map<Integer, Map<Integer, Tile>> map = new HashMap<>();
-	
+
 	protected final int width;
 	protected final int height;
 	protected final int tileWidth;
 	protected final int tileHeight;
-	
+
 	public TileNestedHashMap(int width, int height, int tileWidth, int tileHeight) {
 		this.width = width;
 		this.height = height;
@@ -23,9 +23,11 @@ public class TileNestedHashMap implements TileMap {
 
 	@Override
 	public Tile get(int x, int y) {
-		if (x < 0 || x > width) throw new IllegalArgumentException("Cannot get tile outside of x bounds ("+x+")");
-		if (y < 0 || y > width) throw new IllegalArgumentException("Cannot get tile outside of y bounds ("+y+")");
-		
+		if (x < 0 || x > width)
+			throw new IllegalArgumentException("Cannot get tile outside of x bounds (" + x + ")");
+		if (y < 0 || y > width)
+			throw new IllegalArgumentException("Cannot get tile outside of y bounds (" + y + ")");
+
 		if (map.containsKey(x)) {
 			if (map.get(x).containsKey(y)) {
 				return map.get(x).get(y);

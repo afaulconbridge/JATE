@@ -19,19 +19,18 @@ public class TokenPanelScrollable extends TokenPanel implements Scrollable {
 
 	private static final long serialVersionUID = 8495111616006504813L;
 
-    private Logger log = LoggerFactory.getLogger(getClass());
-	
+	private Logger log = LoggerFactory.getLogger(getClass());
+
 	public TokenPanelScrollable(TokenMap tokenMap) {
 		super(tokenMap);
-		setPreferredSize(new Dimension((int)tokenMap.getWidth()*tokenMap.getUnitWidth(),
-				(int)tokenMap.getHeight()*tokenMap.getUnitHeight()));
+		setPreferredSize(new Dimension((int) tokenMap.getWidth() * tokenMap.getUnitWidth(),
+				(int) tokenMap.getHeight() * tokenMap.getUnitHeight()));
 	}
 
 	@Override
 	public Dimension getPreferredScrollableViewportSize() {
 		return getPreferredSize();
 	}
-
 
 	@Override
 	public boolean getScrollableTracksViewportHeight() {
@@ -42,25 +41,25 @@ public class TokenPanelScrollable extends TokenPanel implements Scrollable {
 	public boolean getScrollableTracksViewportWidth() {
 		return false;
 	}
-	
+
 	@Override
 	public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) {
 		if (orientation == SwingConstants.VERTICAL) {
 			if (direction < 0) {
-				//going up
-				return (int) (visibleRect.getHeight()/2);
+				// going up
+				return (int) (visibleRect.getHeight() / 2);
 			} else {
-				//assume down
-				return (int) (visibleRect.getHeight()/2);
+				// assume down
+				return (int) (visibleRect.getHeight() / 2);
 			}
 		} else {
-			//assume horizontal
+			// assume horizontal
 			if (direction < 0) {
-				//going left
-				return (int) (visibleRect.getWidth()/2);
+				// going left
+				return (int) (visibleRect.getWidth() / 2);
 			} else {
-				//assume right
-				return (int) (visibleRect.getWidth()/2);
+				// assume right
+				return (int) (visibleRect.getWidth() / 2);
 			}
 		}
 	}
@@ -69,16 +68,16 @@ public class TokenPanelScrollable extends TokenPanel implements Scrollable {
 	public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction) {
 		return 1;
 	}
-	
+
 	@Override
-    protected void paintComponent(Graphics g) {
-    	Graphics2D gg = (Graphics2D) g;
-    	
-    	if (tokenMap == null) {
-    		return;
-    	}
-    	Rectangle r = getVisibleRect();
-    	TokenRenderer.render(gg, tokenMap, r.x, r.y , r.x+r.width, r.y+r.height);
+	protected void paintComponent(Graphics g) {
+		Graphics2D gg = (Graphics2D) g;
+
+		if (tokenMap == null) {
+			return;
+		}
+		Rectangle r = getVisibleRect();
+		TokenRenderer.render(gg, tokenMap, r.x, r.y, r.x + r.width, r.y + r.height);
 	}
 
 }

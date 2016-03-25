@@ -17,19 +17,18 @@ public class TilePanelScrollable extends TilePanel implements Scrollable {
 
 	private static final long serialVersionUID = 8495111616006504813L;
 
-    private Logger log = LoggerFactory.getLogger(getClass());
-	
+	private Logger log = LoggerFactory.getLogger(getClass());
+
 	public TilePanelScrollable(TileMap tileMap) {
 		super(tileMap);
-		setPreferredSize(new Dimension((int)tileMap.getWidth()*tileMap.getTileWidth(),
-				(int)tileMap.getHeight()*tileMap.getTileHeight()));
+		setPreferredSize(new Dimension((int) tileMap.getWidth() * tileMap.getTileWidth(),
+				(int) tileMap.getHeight() * tileMap.getTileHeight()));
 	}
 
 	@Override
 	public Dimension getPreferredScrollableViewportSize() {
 		return getPreferredSize();
 	}
-
 
 	@Override
 	public boolean getScrollableTracksViewportHeight() {
@@ -40,25 +39,25 @@ public class TilePanelScrollable extends TilePanel implements Scrollable {
 	public boolean getScrollableTracksViewportWidth() {
 		return false;
 	}
-	
+
 	@Override
 	public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) {
 		if (orientation == SwingConstants.VERTICAL) {
 			if (direction < 0) {
-				//going up
-				return (int) (visibleRect.getHeight()/2);
+				// going up
+				return (int) (visibleRect.getHeight() / 2);
 			} else {
-				//assume down
-				return (int) (visibleRect.getHeight()/2);
+				// assume down
+				return (int) (visibleRect.getHeight() / 2);
 			}
 		} else {
-			//assume horizontal
+			// assume horizontal
 			if (direction < 0) {
-				//going left
-				return (int) (visibleRect.getWidth()/2);
+				// going left
+				return (int) (visibleRect.getWidth() / 2);
 			} else {
-				//assume right
-				return (int) (visibleRect.getWidth()/2);
+				// assume right
+				return (int) (visibleRect.getWidth() / 2);
 			}
 		}
 	}
@@ -67,16 +66,16 @@ public class TilePanelScrollable extends TilePanel implements Scrollable {
 	public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction) {
 		return 1;
 	}
-	
+
 	@Override
-    protected void paintComponent(Graphics g) {
-    	Graphics2D gg = (Graphics2D) g;
-    	
-    	if (tileMap == null) {
-    		return;
-    	}
-    	Rectangle r = getVisibleRect();
-    	TileRenderer.render(gg, tileMap, r.x, r.y , r.x+r.width, r.y+r.height);
+	protected void paintComponent(Graphics g) {
+		Graphics2D gg = (Graphics2D) g;
+
+		if (tileMap == null) {
+			return;
+		}
+		Rectangle r = getVisibleRect();
+		TileRenderer.render(gg, tileMap, r.x, r.y, r.x + r.width, r.y + r.height);
 	}
 
 }
