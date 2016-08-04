@@ -21,10 +21,10 @@ public class TokenPanelScrollable extends TokenPanel implements Scrollable {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	public TokenPanelScrollable(TokenMap tokenMap) {
-		super(tokenMap);
-		setPreferredSize(new Dimension((int) tokenMap.getWidth() * tokenMap.getUnitWidth(),
-				(int) tokenMap.getHeight() * tokenMap.getUnitHeight()));
+	public TokenPanelScrollable(TokenMap tokenMap, int unitWidth, int unitHeight) {
+		super(tokenMap, unitWidth, unitHeight);
+		setPreferredSize(new Dimension((int) tokenMap.getWidth() * unitWidth,
+				(int) tokenMap.getHeight() * unitHeight));
 	}
 
 	@Override
@@ -77,7 +77,7 @@ public class TokenPanelScrollable extends TokenPanel implements Scrollable {
 			return;
 		}
 		Rectangle r = getVisibleRect();
-		TokenRenderer.render(gg, tokenMap, r.x, r.y, r.x + r.width, r.y + r.height);
+		TokenRenderer.render(gg, tokenMap, r.x, r.y, r.x + r.width, r.y + r.height, unitWidth, unitHeight);
 	}
 
 }

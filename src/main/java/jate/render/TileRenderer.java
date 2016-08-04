@@ -13,7 +13,20 @@ public class TileRenderer {
 
 	private static Logger log = LoggerFactory.getLogger(TileRenderer.class);
 
-	public static void render(Graphics2D gg, TileMap tileMap, int left, int top, int right, int bottom) {
+	/**
+	 * Draws part of tile map using a Graphics2D object.
+	 * 
+	 * 
+	 * @param gg Graphics2D to use as destination
+	 * @param tileMap TileMap to use as source
+	 * @param left left edge of TileMap (in pixels)
+	 * @param top top edge of TileMap (in pixels)
+	 * @param right right edge of TileMap (in pixels)
+	 * @param bottom bottom edge of TileMap (in pixels)
+	 * @param tileWidth width of each tile (in pixels)
+	 * @param tileHeight height of each tile (in pixels)
+	 */
+	public static void render(Graphics2D gg, TileMap tileMap, int left, int top, int right, int bottom, int tileWidth, int tileHeight) {
 
 		if (gg == null) {
 			throw new IllegalArgumentException("gg must not be null");
@@ -24,18 +37,18 @@ public class TileRenderer {
 
 		long startTime = System.nanoTime();
 
-		int visibletileleft = left / tileMap.getTileWidth();
-		int visibletileright = right / tileMap.getTileWidth();
-		int visibletiletop = top / tileMap.getTileHeight();
-		int visibletilebottom = bottom / tileMap.getTileHeight();
+		int visibletileleft = left / tileWidth;
+		int visibletileright = right / tileWidth;
+		int visibletiletop = top / tileHeight;
+		int visibletilebottom = bottom / tileHeight;
 
 		log.trace("Can see tiles (" + visibletileleft + "," + visibletiletop + ") -> (" + visibletileright + ","
 				+ visibletilebottom + ")");
 
 		for (int y = visibletiletop; y <= visibletilebottom; y++) {
-			int pixelY = y * tileMap.getTileHeight();
+			int pixelY = y * tileHeight;
 			for (int x = visibletileleft; x <= visibletileright; x++) {
-				int pixelX = x * tileMap.getTileWidth();
+				int pixelX = x * tileWidth;
 
 				Tile tile = tileMap.get(x, y);
 				if (tile != null) {

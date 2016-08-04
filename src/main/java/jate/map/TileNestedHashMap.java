@@ -11,14 +11,10 @@ public class TileNestedHashMap implements TileMap {
 
 	protected final int width;
 	protected final int height;
-	protected final int tileWidth;
-	protected final int tileHeight;
 
-	public TileNestedHashMap(int width, int height, int tileWidth, int tileHeight) {
+	public TileNestedHashMap(int width, int height) {
 		this.width = width;
 		this.height = height;
-		this.tileWidth = tileWidth;
-		this.tileHeight = tileHeight;
 	}
 
 	@Override
@@ -52,16 +48,6 @@ public class TileNestedHashMap implements TileMap {
 	@Override
 	public int getHeight() {
 		return height;
-	}
-
-	@Override
-	public int getTileWidth() {
-		return tileWidth;
-	}
-
-	@Override
-	public int getTileHeight() {
-		return tileHeight;
 	}
 
 }

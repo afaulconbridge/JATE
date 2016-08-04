@@ -22,14 +22,14 @@ public class TilePanelDemo {
 
 		Tile tile = new FileTile("tile_001568", true);
 
-		TileMap tileMap = new TileNestedHashMap(100, 100, 32, 32);
+		TileMap tileMap = new TileNestedHashMap(100, 100);
 		for (int x = 0; x < 100; x++) {
 			for (int y = 0; y < 100; y++) {
 				tileMap.set(x, y, tile);
 			}
 		}
 
-		TilePanel panel = new TilePanel(tileMap);
+		TilePanel panel = new TilePanel(tileMap, 32, 32);
 
 		frame.add(panel);
 

@@ -15,12 +15,17 @@ public class TilePanel extends JPanel {
 	private static final long serialVersionUID = -419684051431254556L;
 
 	protected TileMap tileMap = null;
+	public final int tileWidth;
+	public final int tileHeight;	
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	public TilePanel(TileMap tileMap) {
+	public TilePanel(TileMap tileMap, int tileWidth, int tileHeight) {
 		super();
 
+		this.tileHeight = tileHeight;
+		this.tileWidth = tileWidth;
+		
 		// mark as opaque
 		this.setOpaque(true);
 
@@ -39,7 +44,7 @@ public class TilePanel extends JPanel {
 			return;
 		}
 
-		TileRenderer.render(gg, tileMap, 0, 0, getWidth(), getHeight());
+		TileRenderer.render(gg, tileMap, 0, 0, getWidth(), getHeight(), tileWidth, tileHeight);
 	}
 
 }

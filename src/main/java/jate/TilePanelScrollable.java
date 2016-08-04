@@ -19,10 +19,10 @@ public class TilePanelScrollable extends TilePanel implements Scrollable {
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	public TilePanelScrollable(TileMap tileMap) {
-		super(tileMap);
-		setPreferredSize(new Dimension((int) tileMap.getWidth() * tileMap.getTileWidth(),
-				(int) tileMap.getHeight() * tileMap.getTileHeight()));
+	public TilePanelScrollable(TileMap tileMap, int tileWidth, int tileHeight) {
+		super(tileMap, tileWidth, tileHeight);
+		setPreferredSize(new Dimension((int) tileMap.getWidth() * tileWidth,
+				(int) tileMap.getHeight() * tileHeight));
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class TilePanelScrollable extends TilePanel implements Scrollable {
 			return;
 		}
 		Rectangle r = getVisibleRect();
-		TileRenderer.render(gg, tileMap, r.x, r.y, r.x + r.width, r.y + r.height);
+		TileRenderer.render(gg, tileMap, r.x, r.y, r.x + r.width, r.y + r.height, tileWidth, tileHeight);
 	}
 
 }

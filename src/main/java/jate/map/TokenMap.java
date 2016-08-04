@@ -27,18 +27,4 @@ public interface TokenMap {
 	public void remove(float x, float y, Token t);
 
 	public void remove(XY xy, Token t);
-
-	/**
-	 * Returns the scaling to pixels of each horizontal unit
-	 * 
-	 * @return
-	 */
-	public int getUnitWidth();
-
-	/**
-	 * Returns the scaling to pixels of each vertical unit
-	 * 
-	 * @return
-	 */
-	public int getUnitHeight();
 }

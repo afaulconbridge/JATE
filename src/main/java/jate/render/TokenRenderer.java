@@ -16,7 +16,7 @@ public class TokenRenderer {
 	private static Logger log = LoggerFactory.getLogger(TokenRenderer.class);
 
 	public static void render(Graphics2D gg, TokenMap tokenMap, int pixelLeft, int pixelTop, int pixelRight,
-			int pixelBottom) {
+			int pixelBottom, int unitWidth, int unitHeight) {
 
 		if (gg == null) {
 			throw new IllegalArgumentException("gg must not be null");
@@ -29,10 +29,10 @@ public class TokenRenderer {
 
 		// TODO take size into account?
 
-		float left = pixelLeft / tokenMap.getUnitWidth();
-		float top = pixelTop / tokenMap.getUnitHeight();
-		float right = pixelRight / tokenMap.getUnitWidth();
-		float bottom = pixelBottom / tokenMap.getUnitHeight();
+		float left = pixelLeft / unitWidth;
+		float top = pixelTop / unitHeight;
+		float right = pixelRight / unitWidth;
+		float bottom = pixelBottom / unitHeight;
 
 		log.trace("Rendering tokens within " + left + "," + top + " -> " + right + "," + bottom);
 
@@ -42,8 +42,8 @@ public class TokenRenderer {
 			Token t = subTokenMap.get(xy);
 			float x = xy.x;
 			float y = xy.y;
-			int pixelX = (int) (x * tokenMap.getUnitWidth());
-			int pixelY = (int) (y * tokenMap.getUnitHeight());
+			int pixelX = (int) (x * unitWidth);
+			int pixelY = (int) (y * unitHeight);
 
 			log.trace("Rending token at " + pixelX + "," + pixelY);
 			VolatileImage tokenImage = t.getImage();

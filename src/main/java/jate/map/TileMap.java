@@ -8,10 +8,6 @@ public interface TileMap {
 
 	public int getHeight();
 
-	public int getTileWidth();
-
-	public int getTileHeight();
-
 	public Tile get(int x, int y);
 
 	public void set(int x, int y, Tile tile);

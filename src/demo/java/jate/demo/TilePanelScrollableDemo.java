@@ -25,14 +25,14 @@ public class TilePanelScrollableDemo {
 
 		Tile tile = new FileTile("tile_001568", true);
 
-		TileMap tileMap = new TileNestedHashMap(100, 100, 32, 32);
+		TileMap tileMap = new TileNestedHashMap(100, 100);
 		for (int x = 0; x < 100; x++) {
 			for (int y = 0; y < 100; y++) {
 				tileMap.set(x, y, tile);
 			}
 		}
 
-		TilePanelScrollable tilePanel = new TilePanelScrollable(tileMap);
+		TilePanelScrollable tilePanel = new TilePanelScrollable(tileMap, 32, 32);
 		JScrollPane scrollPane = new JScrollPane(tilePanel);
 
 		frame.add(scrollPane, BorderLayout.CENTER);

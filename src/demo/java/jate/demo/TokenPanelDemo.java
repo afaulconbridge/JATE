@@ -22,14 +22,14 @@ public class TokenPanelDemo {
 
 		Token token = new FileToken("tile_001568");
 
-		TokenMap tokenMap = new TokenHashMap(100, 100, 32, 32);
+		TokenMap tokenMap = new TokenHashMap(100, 100);
 		for (int x = 0; x < 100; x++) {
 			for (int y = 0; y < 100; y++) {
 				tokenMap.add(x, y, token);
 			}
 		}
 
-		TokenPanel panel = new TokenPanel(tokenMap);
+		TokenPanel panel = new TokenPanel(tokenMap, 32, 32);
 
 		frame.add(panel);
 

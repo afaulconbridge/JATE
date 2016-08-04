@@ -25,14 +25,14 @@ public class TokenPanelScrollableDemo {
 
 		Token token = new FileToken("tile_001568");
 
-		TokenMap tokenMap = new TokenHashMap(100, 100, 32, 32);
+		TokenMap tokenMap = new TokenHashMap(100, 100);
 		for (int x = 0; x < 100; x++) {
 			for (int y = 0; y < 100; y++) {
 				tokenMap.add(x, y, token);
 			}
 		}
 
-		TokenPanelScrollable tokenPanel = new TokenPanelScrollable(tokenMap);
+		TokenPanelScrollable tokenPanel = new TokenPanelScrollable(tokenMap, 32, 32);
 		JScrollPane scrollPane = new JScrollPane(tokenPanel);
 
 		frame.add(scrollPane, BorderLayout.CENTER);

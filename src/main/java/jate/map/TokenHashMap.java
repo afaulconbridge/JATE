@@ -23,14 +23,9 @@ public class TokenHashMap implements TokenMap {
 	protected final int width;
 	protected final int height;
 
-	protected final int unitWidth;
-	protected final int unitHeight;
-
-	public TokenHashMap(int width, int height, int unitWidth, int unitHeight) {
+	public TokenHashMap(int width, int height) {
 		this.width = width;
 		this.height = height;
-		this.unitWidth = unitWidth;
-		this.unitHeight = unitHeight;
 	}
 
 	@Override
@@ -42,17 +37,7 @@ public class TokenHashMap implements TokenMap {
 	public int getHeight() {
 		return height;
 	}
-
-	@Override
-	public int getUnitWidth() {
-		return unitWidth;
-	}
-
-	@Override
-	public int getUnitHeight() {
-		return unitHeight;
-	}
-
+	
 	@Override
 	public Set<Token> getTokens() {
 		return Collections.unmodifiableSet(forwardMap.keySet());

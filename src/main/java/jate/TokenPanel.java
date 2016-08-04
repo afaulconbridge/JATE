@@ -15,11 +15,16 @@ public class TokenPanel extends JPanel {
 	private static final long serialVersionUID = -419684051431254556L;
 
 	protected TokenMap tokenMap = null;
+	public final int unitWidth;
+	public final int unitHeight;
 
 	private Logger log = LoggerFactory.getLogger(getClass());
 
-	public TokenPanel(TokenMap tokenMap) {
+	public TokenPanel(TokenMap tokenMap, int unitWidth, int unitHeight) {
 		super();
+		
+		this.unitHeight = unitHeight;
+		this.unitWidth = unitWidth;
 
 		// mark as transparent
 		this.setOpaque(false);
@@ -39,7 +44,7 @@ public class TokenPanel extends JPanel {
 			return;
 		}
 
-		TokenRenderer.render(gg, tokenMap, 0, 0, getWidth(), getHeight());
+		TokenRenderer.render(gg, tokenMap, 0, 0, getWidth(), getHeight(), unitWidth, unitHeight);
 	}
 
 }
